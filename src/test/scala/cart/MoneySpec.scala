@@ -12,4 +12,12 @@ class MoneySpec extends FlatSpec with Matchers {
     money1 + money2 should be(expectedMoney)
   }
 
+  it should "with value 3 subtract another money with value 2 and return new money with value 1" in {
+    val expectedMoney = Money(1)
+
+    val money1 = Money(3)
+    val money2 = Money(2)
+    money1 - money2 should be(expectedMoney)
+  }
+
 }
