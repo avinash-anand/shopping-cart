@@ -1,3 +1,0 @@
-package cart
-
-class Apple

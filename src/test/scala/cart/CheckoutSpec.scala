@@ -19,4 +19,12 @@ class CheckoutSpec extends FlatSpec with Matchers {
     checkout.total() should be(expectedTotal)
   }
 
+  it should "scan an orange and return total as 0.25" in {
+    val expectedTotal = Money(0.25)
+
+    val checkout = new Checkout()
+    checkout.scan(new Orange())
+    checkout.total() should be(expectedTotal)
+  }
+
 }
