@@ -52,15 +52,6 @@ class CheckoutSpec extends FlatSpec with Matchers {
     checkout.total() should be(expectedTotal)
   }
 
-  it should "scan 3 apples, apply buy one get one free offer and return total of 1.2" in {
-    val expectedTotal = Money(1.2)
-
-    val checkout = new Checkout()
-    checkout.scan(new Apple(), new Apple(), new Apple())
-    checkout.applyOffer(new BuyOneAppleGetOneFree())
-    checkout.total() should be(expectedTotal)
-  }
-
   it should "scan 4 apples, apply buy one get one free offer and return total of 1.2" in {
     val expectedTotal = Money(1.2)
 
@@ -69,5 +60,16 @@ class CheckoutSpec extends FlatSpec with Matchers {
     checkout.applyOffer(new BuyOneAppleGetOneFree())
     checkout.total() should be(expectedTotal)
   }
+
+  it should "scan 2 oranges and 1 apple, apply buy one apple get one free offer and return total of 1.1" in {
+    val expectedTotal = Money(1.1)
+
+    val checkout = new Checkout()
+    checkout.scan(new Orange(), new Orange(), new Apple())
+    checkout.applyOffer(new BuyOneAppleGetOneFree())
+    
+    checkout.total() should be(expectedTotal)
+  }
+
 
 }
