@@ -10,7 +10,7 @@ class Checkout() {
 
   def scan(items: Item*): Unit = cartItems.append(items: _*)
 
-  def applyOffer(offer: BuyOneAppleGetOneFree): Unit = discount = new Apple().price
+  def applyOffer(offer: BuyOneAppleGetOneFree): Unit = discount = Money(new Apple().price.value * (cartItems.size / 2))
 
   def total(): Money = {
     totalCost = cartItems.foldLeft(Money(0))((total, item) => total + item.price)
