@@ -20,4 +20,11 @@ class MoneySpec extends FlatSpec with Matchers {
     money1 - money2 should be(expectedMoney)
   }
 
+  it should "multiple integer numbers and returned new money with new value" in {
+    val expectedMoney = Money(3)
+
+    val money1 = Money(1)
+    money1 * 3 should be(expectedMoney)
+  }
+
 }

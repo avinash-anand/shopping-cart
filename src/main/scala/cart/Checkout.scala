@@ -12,11 +12,9 @@ class Checkout() {
   def applyOffer(offer: Offer): Unit = this.offer = Some(offer)
 
   def total(): Money = {
-    val  totalCost = cartItems.foldLeft(Money(0))((total, item) => total + item.price)
-    val appleCount = cartItems.collect {case a: Apple => a}.size
-    val appleDiscount = offer.fold(Money(0)){_ =>
-      val discountedApples: Int = appleCount / 2
-      Money(discountedApples * new Apple().price.value)}
+    val totalCost = cartItems.foldLeft(Money(0))((total, item) => total + item.price)
+    val appleCount = cartItems.collect { case a: Apple => a }.size
+    val appleDiscount = offer.fold(Money(0)) { _ => Money((appleCount / 2) * new Apple().price.value) }
     totalCost - appleDiscount
   }
 
