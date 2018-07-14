@@ -1,5 +1,6 @@
 # shopping-cart
 
+[![Build Status](https://travis-ci.org/avinash-anand/shopping-cart.svg)](https://travis-ci.org/avinash-anand/shopping-cart)
 
 ##
 to pass input arguments from terminal:
