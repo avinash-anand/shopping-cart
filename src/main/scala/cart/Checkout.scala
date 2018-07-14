@@ -2,6 +2,6 @@ package cart
 
 class Checkout() {
 
-  def total(): Int = 0
+  def total(): Money = Money(0)
 
 }
