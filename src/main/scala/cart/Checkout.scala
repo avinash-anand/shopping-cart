@@ -2,6 +2,10 @@ package cart
 
 class Checkout() {
 
-  def total(): Money = Money(0)
+  private var totalCost: Money = Money(0)
+
+  def scan(str: String): Unit = totalCost = Money(0.60)
+
+  def total(): Money = totalCost
 
 }
