@@ -14,8 +14,10 @@ class Checkout() {
   def total(): Money = {
     val totalCost = cartItems.foldLeft(Money(0))((total, item) => total + item.price)
     val appleCount = cartItems.collect { case a: Apple => a }.size
-    val appleDiscount = offer.fold(Money(0)) { _ => Money((appleCount / 2) * new Apple().price.value) }
-    totalCost - appleDiscount
+    val appleDiscount = offer.fold(Money(0)) { _ => new Apple().price * (appleCount / 2) }
+    val orangeCount = cartItems.collect { case o: Orange => o }.size
+    val orangeDiscount = offer.fold(Money(0)) { _ => new Orange().price * (orangeCount / 3) }
+    totalCost - appleDiscount - orangeDiscount
   }
 
 }
