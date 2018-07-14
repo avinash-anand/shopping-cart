@@ -1,5 +1,12 @@
 # shopping-cart
 
+
+##
+to pass input arguments from terminal:
+`sbt "run apple apple orange orange orange"`
+
+or you could pass from intellij
+
 ### Pre-interview Exercise for Developer Candidates
 The following exercise will assess your ability to deliver well structured and maintainable
 code. As a TDD shop we will put equal emphasis on evaluating your tests as we will on

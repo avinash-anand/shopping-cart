@@ -15,7 +15,7 @@ object Main {
     checkout.applyOffer(BuyOneAppleGetOneFree)
     checkout.applyOffer(BuyThreeOrangesForThePriceOfTwo)
 
-    println(checkout.total().value)
+    println(s"Total Cart Value = £${checkout.total().value}")
 
   }
 
