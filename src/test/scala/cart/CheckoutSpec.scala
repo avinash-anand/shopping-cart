@@ -15,7 +15,7 @@ class CheckoutSpec extends FlatSpec with Matchers {
     val expectedTotal = Money(0.60)
 
     val checkout = new Checkout()
-    checkout.scan("APPLE")
+    checkout.scan(new Apple())
     checkout.total() should be(expectedTotal)
   }
 
