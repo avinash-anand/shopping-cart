@@ -1,7 +1,13 @@
 package cart
 
-abstract class Item
+abstract class Item {
+  val price: Money
+}
 
-class Apple extends Item
+class Apple extends Item {
+  override val price: Money = Money(0.60)
+}
 
-class Orange extends Item
+class Orange extends Item {
+  override val price: Money = Money(0.25)
+}
