@@ -5,11 +5,11 @@ import scala.collection.mutable
 class Checkout() {
 
   private val cartItems = mutable.ArrayBuffer[Item]()
-  private var offer: Option[BuyOneAppleGetOneFree] = None
+  private var offer: Option[Offer] = None
 
   def scan(items: Item*): Unit = cartItems.append(items: _*)
 
-  def applyOffer(offer: BuyOneAppleGetOneFree): Unit = this.offer = Some(offer)
+  def applyOffer(offer: Offer): Unit = this.offer = Some(offer)
 
   def total(): Money = {
     val  totalCost = cartItems.foldLeft(Money(0))((total, item) => total + item.price)
