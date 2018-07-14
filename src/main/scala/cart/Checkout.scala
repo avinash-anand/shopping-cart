@@ -1,13 +1,20 @@
 package cart
 
+import scala.collection.mutable
+
 class Checkout() {
 
   private var totalCost: Money = Money(0)
+  private val cartItems = mutable.ArrayBuffer[Item]()
+  private var discount = Money(0)
 
-  def scan(items: Item*): Unit = totalCost = items.foldLeft(Money(0))((total, item) => total + item.price)
+  def scan(items: Item*): Unit = cartItems.append(items: _*)
 
-  def applyOffer(offer: BuyOneAppleGetOneFree): Unit = totalCost = Money(totalCost.value - new Apple().price.value)
+  def applyOffer(offer: BuyOneAppleGetOneFree): Unit = discount = new Apple().price
 
-  def total(): Money = totalCost
+  def total(): Money = {
+    totalCost = cartItems.foldLeft(Money(0))((total, item) => total + item.price)
+    totalCost - discount
+  }
 
 }
